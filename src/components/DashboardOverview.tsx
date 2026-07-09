@@ -225,7 +225,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
       {/* KPI Section 1 - Operations Count in Bootstrap Card deck style */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {/* KPI 1 - Primary Border Left */}
-        <div className="bg-white dark:bg-slate-800 border-l-[4px] border-l-[#0d6efd] border border-y-slate-200 border-r-slate-200 dark:border-y-slate-700 dark:border-r-slate-700 p-4 rounded shadow-sm hover:shadow transition-all">
+        <div className="bg-blue-50/40 dark:bg-blue-950/15 border-l-[4px] border-l-[#0d6efd] border border-y-blue-100 border-r-blue-100 dark:border-y-blue-900/20 dark:border-r-blue-900/20 p-4 rounded shadow-sm hover:shadow transition-all">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
               <span className="text-[10px] font-bold tracking-widest text-[#0d6efd] uppercase">TOTAL PROYEK</span>
@@ -233,7 +233,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
                 <AnimatedCounter value={kpis.totalProj} />
               </h4>
             </div>
-            <div className="p-2 bg-blue-50 dark:bg-blue-950/30 rounded text-[#0d6efd]">
+            <div className="p-2 bg-blue-100/50 dark:bg-blue-950/40 rounded text-[#0d6efd]">
               <Briefcase className="w-5 h-5" />
             </div>
           </div>
@@ -241,7 +241,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
         </div>
 
         {/* KPI 2 - Success Border Left */}
-        <div className="bg-white dark:bg-slate-800 border-l-[4px] border-l-[#198754] border border-y-slate-200 border-r-slate-200 dark:border-y-slate-700 dark:border-r-slate-700 p-4 rounded shadow-sm hover:shadow transition-all">
+        <div className="bg-emerald-50/40 dark:bg-emerald-950/15 border-l-[4px] border-l-[#198754] border border-y-emerald-100 border-r-emerald-100 dark:border-y-emerald-900/20 dark:border-r-emerald-900/20 p-4 rounded shadow-sm hover:shadow transition-all">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
               <span className="text-[10px] font-bold tracking-widest text-[#198754] uppercase">PROYEK SELESAI</span>
@@ -249,7 +249,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
                 <AnimatedCounter value={kpis.lunas} />
               </h4>
             </div>
-            <div className="p-2 bg-green-50 dark:bg-green-950/30 rounded text-[#198754]">
+            <div className="p-2 bg-emerald-100/50 dark:bg-emerald-950/40 rounded text-[#198754]">
               <CheckCircle className="w-5 h-5" />
             </div>
           </div>
@@ -259,7 +259,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
         </div>
 
         {/* KPI 3 - Warning Border Left */}
-        <div className="bg-white dark:bg-slate-800 border-l-[4px] border-l-[#ffc107] border border-y-slate-200 border-r-slate-200 dark:border-y-slate-700 dark:border-r-slate-700 p-4 rounded shadow-sm hover:shadow transition-all">
+        <div className="bg-amber-50/40 dark:bg-amber-950/15 border-l-[4px] border-l-[#ffc107] border border-y-amber-100 border-r-amber-100 dark:border-y-amber-900/20 dark:border-r-amber-900/20 p-4 rounded shadow-sm hover:shadow transition-all">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
               <span className="text-[10px] font-bold tracking-widest text-amber-500 uppercase">PROYEK BERJALAN</span>
@@ -267,7 +267,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
                 <AnimatedCounter value={kpis.berjalan} />
               </h4>
             </div>
-            <div className="p-2 bg-amber-50 dark:bg-amber-950/30 rounded text-amber-500">
+            <div className="p-2 bg-amber-100/50 dark:bg-amber-950/40 rounded text-amber-500">
               <Clock className="w-5 h-5" />
             </div>
           </div>
@@ -277,7 +277,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
         </div>
 
         {/* KPI 4 - Info Border Left */}
-        <div className="bg-white dark:bg-slate-800 border-l-[4px] border-l-[#0dcaf0] border border-y-slate-200 border-r-slate-200 dark:border-y-slate-700 dark:border-r-slate-700 p-4 rounded shadow-sm hover:shadow transition-all">
+        <div className="bg-cyan-50/40 dark:bg-cyan-950/15 border-l-[4px] border-l-[#0dcaf0] border border-y-cyan-100 border-r-cyan-100 dark:border-y-cyan-900/20 dark:border-r-cyan-900/20 p-4 rounded shadow-sm hover:shadow transition-all">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
               <span className="text-[10px] font-bold tracking-widest text-cyan-600 dark:text-cyan-400 uppercase">PROYEK INVOICE</span>
@@ -285,7 +285,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
                 <AnimatedCounter value={kpis.invCount} />
               </h4>
             </div>
-            <div className="p-2 bg-cyan-55/10 rounded text-cyan-500">
+            <div className="p-2 bg-cyan-100/50 dark:bg-cyan-950/40 rounded text-cyan-500">
               <FileSpreadsheet className="w-5 h-5" />
             </div>
           </div>
@@ -296,7 +296,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
       {/* KPI Section 2 - Financial Stats with Grey Background / Flat Border Header typical of Bootstrap */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {/* KPI 5 */}
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded shadow-sm">
+        <div className="bg-indigo-50/40 dark:bg-indigo-950/15 border border-indigo-100 dark:border-indigo-900/20 p-4 rounded shadow-sm">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
               <span className="text-[10px] font-bold text-slate-400 uppercase">Total Nilai SPK</span>
@@ -304,7 +304,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
                 <AnimatedCounter value={kpis.spkSum} formatter={formatRp} />
               </h4>
             </div>
-            <div className="p-2 bg-slate-100 dark:bg-slate-750 rounded text-slate-600 dark:text-slate-350">
+            <div className="p-2 bg-indigo-100/50 dark:bg-indigo-950/40 rounded text-indigo-600 dark:text-indigo-400">
               <FileText className="w-5 h-5" />
             </div>
           </div>
@@ -312,7 +312,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
         </div>
 
         {/* KPI 6 */}
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded shadow-sm">
+        <div className="bg-emerald-50/40 dark:bg-emerald-950/15 border border-emerald-100 dark:border-emerald-900/20 p-4 rounded shadow-sm">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
               <span className="text-[10px] font-bold text-slate-400 uppercase">Total Terbayar</span>
@@ -320,7 +320,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
                 <AnimatedCounter value={kpis.terbayarSum} formatter={formatRp} />
               </h4>
             </div>
-            <div className="p-2 bg-green-50 dark:bg-green-950/30 rounded text-[#198754]">
+            <div className="p-2 bg-emerald-100/50 dark:bg-emerald-950/40 rounded text-[#198754]">
               <TrendingUp className="w-5 h-5" />
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
         </div>
 
         {/* KPI 7 */}
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded shadow-sm">
+        <div className="bg-blue-50/40 dark:bg-blue-950/15 border border-blue-100 dark:border-blue-900/20 p-4 rounded shadow-sm">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
               <span className="text-[10px] font-bold text-slate-400 uppercase">Total Tagihan</span>
@@ -338,7 +338,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
                 <AnimatedCounter value={kpis.tagihanSum} formatter={formatRp} />
               </h4>
             </div>
-            <div className="p-2 bg-blue-50 dark:bg-blue-950/30 rounded text-[#0d6efd]">
+            <div className="p-2 bg-blue-100/50 dark:bg-blue-950/40 rounded text-[#0d6efd]">
               <Scale className="w-5 h-5" />
             </div>
           </div>
@@ -346,7 +346,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
         </div>
 
         {/* KPI 8 */}
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded shadow-sm">
+        <div className="bg-amber-50/40 dark:bg-amber-950/15 border border-amber-100 dark:border-amber-900/20 p-4 rounded shadow-sm">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
               <span className="text-[10px] font-bold text-slate-400 uppercase">Total Pembayaran</span>
@@ -354,7 +354,7 @@ export default function DashboardOverview({ proyek, pembayaran, tagihan, onSelec
                 <AnimatedCounter value={kpis.pembayaranSum} formatter={formatRp} />
               </h4>
             </div>
-            <div className="p-2 bg-amber-50 dark:bg-amber-950/30 rounded text-amber-500">
+            <div className="p-2 bg-amber-100/50 dark:bg-amber-950/40 rounded text-amber-500">
               <Wallet className="w-5 h-5" />
             </div>
           </div>

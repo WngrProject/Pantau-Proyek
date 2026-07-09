@@ -617,9 +617,10 @@ export default function ProjectTable({ data, viewId, loading, onEdit, onDelete, 
     if (viewId === "semua-proyek") {
       const spkSum = filteredAndSortedData.reduce((tot, r) => tot + parseNum(r["Nilai SPK"]), 0);
       const paidSum = filteredAndSortedData.reduce((tot, r) => tot + parseNum(r["Nilai Terbayar"]), 0);
+      const invoiceSum = filteredAndSortedData.reduce((tot, r) => tot + parseNum(r["Nilai Invoice"]), 0);
       m2 = { label: "Total Nilai SPK", value: "Rp " + formatCurrency(spkSum), numericValue: spkSum, formatter: v => "Rp " + formatCurrency(v), icon: "Briefcase", color: "text-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/30" };
       m3 = { label: "Sudah Terbayar", value: "Rp " + formatCurrency(paidSum), numericValue: paidSum, formatter: v => "Rp " + formatCurrency(v), icon: "CheckCircle", color: "text-emerald-500 bg-emerald-50/70 dark:bg-emerald-950/30" };
-      m4 = { label: "Sisa SPK Belum Bayar", value: "Rp " + formatCurrency(Math.max(0, spkSum - paidSum)), numericValue: Math.max(0, spkSum - paidSum), formatter: v => "Rp " + formatCurrency(v), icon: "AlertCircle", color: "text-amber-500 bg-amber-50/70 dark:bg-amber-950/30" };
+      m4 = { label: "Sisa Invoice Belum Terbayar", value: "Rp " + formatCurrency(Math.max(0, invoiceSum - paidSum)), numericValue: Math.max(0, invoiceSum - paidSum), formatter: v => "Rp " + formatCurrency(v), icon: "AlertCircle", color: "text-amber-500 bg-amber-50/70 dark:bg-amber-950/30" };
     } else if (viewId === "daftar-pembayaran") {
       const paySum = filteredAndSortedData.reduce((tot, r) => tot + parseNum(r["Nilai Pembayaran"]), 0);
       m2 = { label: "Total Pembayaran", value: "Rp " + formatCurrency(paySum), numericValue: paySum, formatter: v => "Rp " + formatCurrency(v), icon: "Landmark", color: "text-emerald-500 bg-emerald-50/70 dark:bg-emerald-950/30" };
@@ -736,23 +737,47 @@ export default function ProjectTable({ data, viewId, loading, onEdit, onDelete, 
     <div className="space-y-3">
       {/* Pane Dynamic Quick Metrics Grid - Bootstrap style cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 animate-fadeIn">
-        {paneMetrics.map((met, index) => (
-          <div key={index} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-3 rounded shadow-sm flex items-center justify-between">
-            <div className="space-y-0.5">
-              <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">{met.label}</span>
-              <h5 className="text-sm font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">
-                {met.numericValue !== undefined ? (
-                  <AnimatedCounter value={met.numericValue} formatter={met.formatter} />
-                ) : (
-                  met.value
-                )}
-              </h5>
+        {paneMetrics.map((met, index) => {
+          let bgClass = "bg-white dark:bg-slate-800";
+          let borderClass = "border-slate-200 dark:border-slate-700";
+          let iconBg = "bg-slate-100 dark:bg-slate-700/50";
+          
+          if (index === 0) {
+            bgClass = "bg-indigo-50/40 dark:bg-indigo-950/15";
+            borderClass = "border-indigo-100 dark:border-indigo-900/20";
+            iconBg = "bg-indigo-100/50 dark:bg-indigo-900/30";
+          } else if (index === 1) {
+            bgClass = "bg-sky-50/40 dark:bg-sky-950/15";
+            borderClass = "border-sky-100 dark:border-sky-900/20";
+            iconBg = "bg-sky-100/50 dark:bg-sky-900/30";
+          } else if (index === 2) {
+            bgClass = "bg-emerald-50/40 dark:bg-emerald-950/15";
+            borderClass = "border-emerald-100 dark:border-emerald-900/20";
+            iconBg = "bg-emerald-100/50 dark:bg-emerald-900/30";
+          } else if (index === 3) {
+            bgClass = "bg-amber-50/40 dark:bg-amber-950/15";
+            borderClass = "border-amber-100 dark:border-amber-900/20";
+            iconBg = "bg-amber-100/50 dark:bg-amber-900/30";
+          }
+
+          return (
+            <div key={index} className={`${bgClass} border ${borderClass} p-3 rounded shadow-sm flex items-center justify-between`}>
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">{met.label}</span>
+                <h5 className="text-sm font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">
+                  {met.numericValue !== undefined ? (
+                    <AnimatedCounter value={met.numericValue} formatter={met.formatter} />
+                  ) : (
+                    met.value
+                  )}
+                </h5>
+              </div>
+              <div className={`p-2 rounded ${iconBg}`}>
+                {selectMetricIcon(met.icon)}
+              </div>
             </div>
-            <div className={`p-2 rounded ${met.color.replace("bg-indigo-50/70", "bg-blue-50/80").replace("bg-sky-50/70", "bg-cyan-50/60").replace("bg-emerald-50/70", "bg-green-50/70")}`}>
-              {selectMetricIcon(met.icon)}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* 2-Row Filter Bar - Bootstrap card style with gray background header */}
