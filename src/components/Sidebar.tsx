@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { MenuItem, MenuSection } from "../types";
 import { 
   X, LayoutDashboard, Database, Briefcase, Landmark, Users, 
-  ChevronRight, CircleDot, Sparkles, MapPin, ListCollapse, List, ScrollText, HardHat
+  ChevronRight, CircleDot, Sparkles, MapPin, ListCollapse, List, ScrollText, HardHat,
+  FolderOpen
 } from "lucide-react";
 
 interface SidebarProps {
@@ -147,6 +148,13 @@ const menuSections: MenuSection[] = [
           { id: "daftar-pelaksana", title: "Daftar Pelaksana", type: "table", path: "daftar-pelaksana" },
           { id: "daftar-absensi", title: "Daftar Absensi", type: "table", path: "daftar-absensi" }
         ]
+      },
+      {
+        title: "Dokumen",
+        id: "dokumen-sub",
+        items: [
+          { id: "galeri-dokumen", title: "Dokumen", type: "document", path: "galeri-dokumen" }
+        ]
       }
     ]
   }
@@ -231,6 +239,7 @@ export default function Sidebar({ currentViewId, onSelectView, isOpenOnMobile, o
     if (id.includes("-material") || id.includes("-bon-")) return <HardHat className="w-3.5 h-3.5" />;
     if (id.includes("-spk")) return <ScrollText className="w-3.5 h-3.5" />;
     if (id.includes("-boq")) return <ListCollapse className="w-3.5 h-3.5" />;
+    if (id === "galeri-dokumen") return <FolderOpen className="w-3.5 h-3.5" />;
     return <CircleDot className="w-3 h-3" />;
   };
 

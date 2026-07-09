@@ -11,7 +11,7 @@ export interface UserSession {
 export interface MenuItem {
   id: string;
   title: string;
-  type: "table" | "map" | "overview";
+  type: "table" | "map" | "overview" | "document";
   path: string;
 }
 

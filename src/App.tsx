@@ -8,6 +8,7 @@ import DashboardOverview from "./components/DashboardOverview";
 import ProjectTable from "./components/ProjectTable";
 import MapPane from "./components/MapPane";
 import DataModal from "./components/DataModal";
+import DocumentGallery from "./components/DocumentGallery";
 import { 
   LogOut, Menu, User, Shield, AlertTriangle, CheckCircle2, 
   Sparkles, BellRing, Moon, Sun, Lock, Loader2, ArrowRight,
@@ -214,6 +215,11 @@ export default function App() {
 
     // 2. Regular modular view: maps to standard paths
     // Determine target firestore path
+    if (currentViewId === "galeri-dokumen") {
+      setLoading(false);
+      return;
+    }
+
     let syncPath = currentViewId;
     if (currentViewId === "semua-proyek") syncPath = "semua-proyek";
     else if (currentViewId === "daftar-pembayaran") syncPath = "daftar-pembayaran";
@@ -424,6 +430,8 @@ export default function App() {
                 setIsSub(isSubCat);
               }}
             />
+          ) : currentViewId === "galeri-dokumen" ? (
+            <DocumentGallery />
           ) : currentViewId.endsWith("-maps") ? (
             <MapPane 
               data={viewData}
